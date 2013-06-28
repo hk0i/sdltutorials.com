@@ -20,6 +20,7 @@ class GApp
     private:
 
         bool isRunning;
+        SDL_Surface *display;
 
 };
 

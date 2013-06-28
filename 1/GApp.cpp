@@ -1,7 +1,8 @@
 #include "GApp.h"
 
 GApp::GApp()
- : isRunning(true)
+ : isRunning(true),
+   display(NULL)
 {
 
 }

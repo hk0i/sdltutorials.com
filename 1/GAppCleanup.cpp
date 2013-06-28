@@ -3,4 +3,5 @@
 void GApp::onCleanup(void)
 {
 
+    SDL_Quit();
 }
