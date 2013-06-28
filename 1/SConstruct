@@ -1,0 +1,19 @@
+import glob
+
+# create build environment
+env = Environment()
+
+# determine compiler and linker flags for SDL
+env.ParseConfig('sdl-config --cflags')
+env.ParseConfig('sdl-config --libs')
+
+# gather a list of source files
+SOURCES = glob.glob('*.cpp')
+
+# add additional compiler flags
+env.Append(CCFLAGS = ['-g', '-Wall'])
+# add additional libraries to link against
+# env.Append(LIBS = ['SDL_mixer', 'SDL_image'])
+
+# build target
+env.Program(target = 'gapp', source = SOURCES)
