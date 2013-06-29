@@ -35,3 +35,27 @@ bool Surface::draw(SDL_Surface *src, SDL_Surface *dest, int x, int y)
 
     return true;
 }
+
+bool Surface::draw(SDL_Surface *src, SDL_Surface *dest, int destX, int destY, int srcX, int srcY, int srcWidth, int srcHeight)
+{
+    if (src == NULL || dest == NULL) {
+        return false;
+    }
+
+    SDL_Rect destRect;
+
+    destRect.x = destX;
+    destRect.y = destY;
+
+    SDL_Rect srcRect;
+
+    srcRect.x = srcX;
+    srcRect.y = srcY;
+    srcRect.w = srcWidth;
+    srcRect.h = srcHeight;
+
+
+    SDL_BlitSurface(src, &srcRect, dest, &destRect);
+
+    return true;
+}

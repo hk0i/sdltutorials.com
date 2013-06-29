@@ -2,7 +2,8 @@
 
 GApp::GApp()
  : isRunning(true),
-   display(NULL)
+   display(NULL),
+   test(NULL)
 {
 
 }

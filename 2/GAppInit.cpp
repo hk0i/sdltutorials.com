@@ -10,5 +10,9 @@ bool GApp::onInit(void)
         return false;
     }
 
+    if ((test = Surface::load("test.bmp")) == NULL) {
+        return false;
+    }
+
     return true;
 }

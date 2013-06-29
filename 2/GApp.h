@@ -2,6 +2,7 @@
 #define _GAPP_H
 
 #include <SDL/SDL.h>
+#include "Surface.h"
 
 class GApp
 {
@@ -21,6 +22,7 @@ class GApp
 
         bool isRunning;
         SDL_Surface *display;
+        SDL_Surface *test;
 
 };
 
