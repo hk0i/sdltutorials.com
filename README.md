@@ -10,9 +10,10 @@ a build system. I found a [working example of an SConstruct script][SConstruct]
 as well as many other build system instructions for SDL over at the [game
 programming wiki][gpwiki].
 
-#Requirements
+##Requirements
 - scons 2.3.0
 - SDL 1.2.15 (I installed SDL and its related libraries via Mac OS X/homebrew):
+
 
     brew install sdl sdl_gfx sdl_image sdl_mixer sdl_net sdl_rtf sdl_sound sdl_ttf
 
