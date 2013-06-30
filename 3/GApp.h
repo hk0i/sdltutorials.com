@@ -3,8 +3,9 @@
 
 #include <SDL/SDL.h>
 #include "Surface.h"
+#include "Event.h"
 
-class GApp
+class GApp : public Event
 {
     public:
         GApp();
@@ -18,12 +19,14 @@ class GApp
         void onRender(void);
         void onCleanup(void);
 
+        //events
+        void onQuit(void);
+
     private:
 
         bool isRunning;
         SDL_Surface *display;
         SDL_Surface *test;
-
 };
 
 #endif

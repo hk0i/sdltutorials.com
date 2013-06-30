@@ -2,7 +2,10 @@
 
 void GApp::onEvent(SDL_Event *event)
 {
-    if (event->type == SDL_QUIT) {
-        isRunning = false;
-    }
+    Event::onEvent(event);
+}
+
+void GApp::onQuit(void)
+{
+    isRunning = false;
 }
