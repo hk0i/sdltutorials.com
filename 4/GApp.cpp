@@ -24,10 +24,10 @@ int GApp::onExecute(void)
         while (SDL_PollEvent(&event)) {
             onEvent(&event);
 
-            onLoop();
-            onRender();
         }
-    }
+        onLoop();
+        onRender();
+      }
 
     onCleanup();
     return 0;
