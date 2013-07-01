@@ -16,20 +16,13 @@ void GApp::onMouseDown(Uint8 button, int mouseX, int mouseY)
         int index = mouseX / 200;
         index += (mouseY / 200) * 3;
 
-        std::cerr << "Player " << currentPlayer << " Click! Index: " << index << std::endl;
+        // std::cerr << "Player " << currentPlayer << " Click! Index: " << index << std::endl;
 
         //if the spot is taken, exit
-        if (gameBoard[index] != GRID_NONE) {
+        if (gameBoard.getCell(index) != TicTacToe::GRID_NONE) {
             return;
         }
 
-        if (currentPlayer == 0) {
-            setCell(index, GRID_X);
-            currentPlayer = 1;
-        }
-        else {
-            setCell(index, GRID_O);
-            currentPlayer = 0;
-        }
+        gameBoard.takeTurn(index);
     }
 }

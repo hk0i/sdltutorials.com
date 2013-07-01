@@ -6,6 +6,7 @@
 #include <SDL/SDL.h>
 #include "Surface.h"
 #include "Event.h"
+#include "TicTacToe.h"
 
 #define INIT_SURFACE(surf, img) if ((surf = Surface::load(#img)) == NULL) { \
     std::cerr << "Could not load surface: " << #surf << " (" << #img << ")" << std::endl; \
@@ -33,11 +34,6 @@ class GApp : public Event
         void onQuit(void);
         void onMouseDown(Uint8 button, int mouseX, int mouseY);
 
-        //app functions
-        void resetBoard(void);
-        void setCell(int index, int type);
-
-
     private:
 
         bool isRunning;
@@ -47,15 +43,7 @@ class GApp : public Event
         SDL_Surface *surfX;
         SDL_Surface *surfO;
 
-        int gameBoard[9];
-        int currentPlayer;
-
-        enum {
-            GRID_NONE = 0,
-            GRID_X,
-            GRID_O
-        };
-
+        TicTacToe gameBoard;
 
 };
 

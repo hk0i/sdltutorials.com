@@ -17,7 +17,5 @@ bool GApp::onInit(void)
     Surface::transparent(surfX, 255, 0, 255);
     Surface::transparent(surfO, 255, 0, 255);
 
-    resetBoard();
-
     return true;
 }

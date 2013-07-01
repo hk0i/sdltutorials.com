@@ -9,10 +9,10 @@ void GApp::onRender(void)
         int x = (i % 3) * 200;
         int y = (i / 3) * 200;
 
-        if (gameBoard[i] == GRID_X) {
+        if (gameBoard.getCell(i) == TicTacToe::GRID_X) {
             Surface::draw(surfX, display, x, y);
         }
-        else if (gameBoard[i] == GRID_O) {
+        else if (gameBoard.getCell(i) == TicTacToe::GRID_O) {
             Surface::draw(surfO, display, x, y);
         }
     }

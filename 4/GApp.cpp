@@ -5,8 +5,7 @@ GApp::GApp()
    display(NULL),
    surfGrid(NULL),
    surfX(NULL),
-   surfO(NULL),
-   currentPlayer(0)
+   surfO(NULL)
 {
 
 }
@@ -35,26 +34,6 @@ int GApp::onExecute(void)
 GApp::~GApp()
 {
 
-}
-
-void GApp::resetBoard(void)
-{
-    for (int i = 0; i < 9; ++i) {
-        gameBoard[i] = GRID_NONE;
-    }
-}
-
-void GApp::setCell(int index, int type)
-{
-    if (index < 0 || index >= 9) {
-        return;
-    }
-
-    if (type < 0 || type > GRID_O) {
-        return;
-    }
-
-    gameBoard[index] = type;
 }
 
 int main(int argc, char *argv[])
