@@ -2,9 +2,11 @@
 #define _GAPP_H
 
 #include <iostream>
+#include <string>
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_Image.h>
+
 #include "Surface.h"
 #include "Event.h"
 #include "TicTacToe.h"
@@ -42,6 +44,8 @@ class GApp : public Event
 
         //misc functions
         void displayWinner(TicTacToe::GridType winner);
+
+        void setPVM();
 
     private:
 

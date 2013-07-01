@@ -13,7 +13,6 @@ void GApp::onQuit(void)
 void GApp::displayWinner(TicTacToe::GridType winner)
 {
     if (winner == TicTacToe::GRID_X) {
-        std::cout << "WINNER IS PLAYER #" << winner << std::endl;
         Surface::draw(surfXWins, display, 0, 236);
     }
     else {

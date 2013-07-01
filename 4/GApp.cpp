@@ -33,6 +33,11 @@ int GApp::onExecute(void)
     return 0;
 }
 
+void GApp::setPVM(void)
+{
+    gameBoard.setPVM(true);
+}
+
 GApp::~GApp()
 {
 
@@ -41,6 +46,10 @@ GApp::~GApp()
 int main(int argc, char *argv[])
 {
     GApp app;
+    if (argc > 1 && argv[1] == std::string("-ai")) {
+        app.setPVM();
+    }
+
 
     return app.onExecute();
 }

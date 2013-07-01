@@ -1,7 +1,7 @@
 #include "TicTacToe.h"
 
 TicTacToe::TicTacToe(void)
-    : pvm(true)
+    : pvm(false)
 {
     resetBoard();
 }
@@ -58,7 +58,12 @@ const TicTacToe::GridType TicTacToe::takeTurn(int index)
             aiTurn();
         }
         else {
-            setCell(index, (GridType) (currentPlayer + 1));
+            if (gameBoard[index] == GRID_NONE) {
+                setCell(index, (GridType) (currentPlayer + 1));
+            }
+            else {
+                return GRID_NONE;
+            }
         }
     }
 
@@ -150,4 +155,9 @@ const int TicTacToe::getCurrentPlayer(void) const
 const bool TicTacToe::isPVM(void) const
 {
     return pvm;
+}
+
+void TicTacToe::setPVM(bool vsAi)
+{
+    pvm = vsAi;
 }
