@@ -46,7 +46,7 @@ const TicTacToe::GridType TicTacToe::takeTurn(int index)
     }
 
     if (checkForWin()) {
-        std::cout << "Player " << currentPlayer << " WINS!" << std::endl;
+        std::cout << "Player " << currentPlayer + 1 << " WINS!" << std::endl;
         return (GridType) (currentPlayer + 1);
     }
 
