@@ -6,3 +6,6 @@
 
 ##Surface.h
 - `char *file` to `const char *file` - don't know why this was mutable before, and it was throwing warnings on my macro.
+
+##TicTacToe.h
+The original implementation doesn't have separation of the game logic itself, it's all mushed into the App.h/cpp files. I decided instead of keeping track of all of these variables for the game board inside of the main App file, it might be a good idea to break them off into a separate object to keep track of those things.

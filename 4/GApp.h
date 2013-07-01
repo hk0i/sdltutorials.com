@@ -34,6 +34,9 @@ class GApp : public Event
         void onQuit(void);
         void onMouseDown(Uint8 button, int mouseX, int mouseY);
 
+        //misc functions
+        void displayWinner(TicTacToe::GridType winner);
+
     private:
 
         bool isRunning;
