@@ -14,6 +14,7 @@ void TicTacToe::resetBoard(void)
 {
     gameOver = false;
     currentPlayer = 0;
+    winner = GRID_NONE;
 
     for (int i = 0; i < 9; ++i) {
         gameBoard[i] = GRID_NONE;
@@ -72,6 +73,7 @@ const bool TicTacToe::checkForWin(void)
     if (gameBoard[0] > 0
         && gameBoard[0] == gameBoard[4]
         && gameBoard[4] == gameBoard[8]) {
+        winner = (GridType) (currentPlayer + 1);
         gameOver = true;
         return true;
     }
@@ -80,6 +82,7 @@ const bool TicTacToe::checkForWin(void)
     if (gameBoard[2] > 0
         && gameBoard[2] == gameBoard[4]
         && gameBoard[4] == gameBoard[6]) {
+        winner = (GridType) (currentPlayer + 1);
         gameOver = true;
         return true;
     }
@@ -90,6 +93,7 @@ const bool TicTacToe::checkForWin(void)
             //across
             if (gameBoard[i] == gameBoard[i+1]
                 && gameBoard[i+1] == gameBoard[i+2]) {
+                winner = (GridType) (currentPlayer + 1);
                 gameOver = true;
                 return true;
             }
@@ -97,11 +101,11 @@ const bool TicTacToe::checkForWin(void)
     }
 
     //check columns
-    for (int i = 0; i < 3; ++i)
-    {
+    for (int i = 0; i < 3; ++i) {
         if (gameBoard[i] > 0) {
             if (gameBoard[i] == gameBoard[i+3]
                 && gameBoard[i+3] == gameBoard[i+6]) {
+                winner = (GridType) (currentPlayer + 1);
                 gameOver = true;
                 return true;
             }
@@ -115,4 +119,9 @@ const bool TicTacToe::checkForWin(void)
 const bool TicTacToe::isGameOver(void) const
 {
     return gameOver;
+}
+
+const TicTacToe::GridType TicTacToe::getWinner(void) const
+{
+    return winner;
 }

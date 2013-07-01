@@ -4,11 +4,17 @@
 #include <iostream>
 
 #include <SDL/SDL.h>
+#include <SDL/SDL_Image.h>
 #include "Surface.h"
 #include "Event.h"
 #include "TicTacToe.h"
 
 #define INIT_SURFACE(surf, img) if ((surf = Surface::load(#img)) == NULL) { \
+    std::cerr << "Could not load surface: " << #surf << " (" << #img << ")" << std::endl; \
+    return false; \
+}
+
+#define INIT_SURFACE_ALPHA(surf, img) if ((surf = Surface::loadAlpha(#img)) == NULL) { \
     std::cerr << "Could not load surface: " << #surf << " (" << #img << ")" << std::endl; \
     return false; \
 }
@@ -45,6 +51,9 @@ class GApp : public Event
         SDL_Surface *surfGrid;
         SDL_Surface *surfX;
         SDL_Surface *surfO;
+
+        SDL_Surface *surfXWins;
+        SDL_Surface *surfOWins;
 
         TicTacToe gameBoard;
 

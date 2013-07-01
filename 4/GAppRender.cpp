@@ -15,6 +15,12 @@ void GApp::onRender(void)
         else if (gameBoard.getCell(i) == TicTacToe::GRID_O) {
             Surface::draw(surfO, display, x, y);
         }
+
+        TicTacToe::GridType winner = gameBoard.getWinner();
+        if (winner != TicTacToe::GRID_NONE) {
+            displayWinner(winner);
+        }
+
     }
 
     SDL_Flip(display);

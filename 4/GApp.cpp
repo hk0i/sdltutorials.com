@@ -5,7 +5,9 @@ GApp::GApp()
    display(NULL),
    surfGrid(NULL),
    surfX(NULL),
-   surfO(NULL)
+   surfO(NULL),
+   surfXWins(NULL),
+   surfOWins(NULL)
 {
 
 }

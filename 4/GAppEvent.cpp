@@ -12,7 +12,14 @@ void GApp::onQuit(void)
 
 void GApp::displayWinner(TicTacToe::GridType winner)
 {
-    std::cout << "WINNER IS PLAYER #" << winner << std::endl;
+    if (winner == TicTacToe::GRID_X) {
+        std::cout << "WINNER IS PLAYER #" << winner << std::endl;
+        Surface::draw(surfXWins, display, 0, 236);
+    }
+    else {
+        Surface::draw(surfOWins, display, 0, 236);
+    }
+
 }
 
 void GApp::onMouseDown(Uint8 button, int mouseX, int mouseY)
@@ -24,9 +31,9 @@ void GApp::onMouseDown(Uint8 button, int mouseX, int mouseY)
         if (!gameBoard.isGameOver()) {
             TicTacToe::GridType winner = gameBoard.takeTurn(index);
             //check for winner to display message
-            if (winner != TicTacToe::GRID_NONE) {
-                displayWinner(winner);
-            }
+            // if (winner != TicTacToe::GRID_NONE) {
+            //     displayWinner(winner);
+            // }
         }
         else {
             gameBoard.resetBoard();
