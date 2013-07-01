@@ -30,10 +30,10 @@ void GApp::onMouseDown(Uint8 button, int mouseX, int mouseY)
 
         if (!gameBoard.isGameOver()) {
             TicTacToe::GridType winner = gameBoard.takeTurn(index);
-            //check for winner to display message
-            // if (winner != TicTacToe::GRID_NONE) {
-            //     displayWinner(winner);
-            // }
+            if (gameBoard.isPVM() && gameBoard.getCurrentPlayer() == 1) {
+                TicTacToe::GridType winner = gameBoard.takeTurn(index);
+            }
+
         }
         else {
             gameBoard.resetBoard();

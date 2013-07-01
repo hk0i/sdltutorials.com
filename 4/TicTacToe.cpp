@@ -1,6 +1,7 @@
 #include "TicTacToe.h"
 
 TicTacToe::TicTacToe(void)
+    : pvm(true)
 {
     resetBoard();
 }
@@ -39,11 +40,26 @@ const TicTacToe::GridType TicTacToe::getCell(int index) const
     return (GridType) gameBoard[index];
 }
 
+void TicTacToe::aiTurn(void)
+{
+    int randomSlot = -1;
+    do {
+        randomSlot = rand() % 9;
+    } while(gameBoard[randomSlot] != GRID_NONE);
+
+    gameBoard[randomSlot] = GRID_O;
+}
+
 const TicTacToe::GridType TicTacToe::takeTurn(int index)
 {
     //cast int to GridType
     if (!gameOver) {
-        setCell(index, (GridType) (currentPlayer + 1));
+        if (pvm && currentPlayer == 1) {
+            aiTurn();
+        }
+        else {
+            setCell(index, (GridType) (currentPlayer + 1));
+        }
     }
 
     if (checkForWin()) {
@@ -124,4 +140,14 @@ const bool TicTacToe::isGameOver(void) const
 const TicTacToe::GridType TicTacToe::getWinner(void) const
 {
     return winner;
+}
+
+const int TicTacToe::getCurrentPlayer(void) const
+{
+    return currentPlayer;
+}
+
+const bool TicTacToe::isPVM(void) const
+{
+    return pvm;
 }
