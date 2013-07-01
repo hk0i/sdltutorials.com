@@ -13,7 +13,7 @@ SOURCES = glob.glob('*.cpp')
 # add additional compiler flags
 env.Append(CCFLAGS = ['-g', '-Wall'])
 # add additional libraries to link against
-# env.Append(LIBS = ['SDL_mixer', 'SDL_image'])
+env.Append(LIBS = ['SDL_image'])
 
 # build target
 env.Program(target = 'gapp', source = SOURCES)

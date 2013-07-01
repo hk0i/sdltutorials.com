@@ -2,8 +2,16 @@
 #define _GAPP_H
 
 #include <SDL/SDL.h>
+#include <iostream>
+
 #include "Surface.h"
 #include "Event.h"
+#include "Animation.h"
+
+#define INIT_SURFACE(surf, img) if ((surf = Surface::load(#img)) == NULL) { \
+    std::cerr << "Could not load surface: " << #surf << " (" << #img << ")" << std::endl; \
+    return false; \
+}
 
 class GApp : public Event
 {
@@ -27,6 +35,8 @@ class GApp : public Event
         bool isRunning;
         SDL_Surface *display;
         SDL_Surface *test;
+
+        Animation animYoshi;
 };
 
 #endif

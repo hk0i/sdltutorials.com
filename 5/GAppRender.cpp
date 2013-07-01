@@ -2,8 +2,8 @@
 
 void GApp::onRender(void)
 {
-    Surface::draw(test, display, 0, 0);
-    Surface::draw(test, display, 100, 100, 0, 0, 50, 50);
+    SDL_FillRect(display, NULL, SDL_MapRGB(display->format, 0, 0, 0));
+    Surface::draw(test, display, 290, 220, 0, animYoshi.getCurrentFrame() * 64, 64, 64);
 
     SDL_Flip(display);
 }

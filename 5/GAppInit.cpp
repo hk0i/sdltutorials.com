@@ -10,9 +10,14 @@ bool GApp::onInit(void)
         return false;
     }
 
-    if ((test = Surface::load("test.bmp")) == NULL) {
+    if ((test = Surface::load("yoshi.bmp")) == NULL) {
+        std::cerr << "Could not load surface " << SDL_GetError() << std::endl;
         return false;
     }
+
+    animYoshi.maxFrames = 8;
+
+    Surface::transparent(test, 255, 0, 255);
 
     return true;
 }

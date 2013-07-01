@@ -5,16 +5,31 @@ Surface::Surface()
 
 }
 
-SDL_Surface *Surface::load(char *file)
+SDL_Surface *Surface::load(const char *file)
 {
     SDL_Surface *temp = NULL;
     SDL_Surface *ret  = NULL;
 
-    if ((temp = SDL_LoadBMP(file)) == NULL) {
+    if ((temp = IMG_Load(file)) == NULL) {
         return NULL;
     }
 
     ret = SDL_DisplayFormat(temp);
+    SDL_FreeSurface(temp);
+
+    return ret;
+}
+
+SDL_Surface *Surface::loadAlpha(const char *file)
+{
+    SDL_Surface *temp = NULL;
+    SDL_Surface *ret  = NULL;
+
+    if ((temp = IMG_Load(file)) == NULL) {
+        return NULL;
+    }
+
+    ret = SDL_DisplayFormatAlpha(temp);
     SDL_FreeSurface(temp);
 
     return ret;
@@ -56,6 +71,17 @@ bool Surface::draw(SDL_Surface *src, SDL_Surface *dest, int destX, int destY, in
 
 
     SDL_BlitSurface(src, &srcRect, dest, &destRect);
+
+    return true;
+}
+
+bool Surface::transparent(SDL_Surface *dest, int red, int green, int blue)
+{
+    if (dest == NULL) {
+        return false;
+    }
+
+    SDL_SetColorKey(dest, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(dest->format, red, green, blue));
 
     return true;
 }

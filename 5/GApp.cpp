@@ -19,10 +19,10 @@ int GApp::onExecute(void)
     while (isRunning) {
         while (SDL_PollEvent(&event)) {
             onEvent(&event);
-
-            onLoop();
-            onRender();
         }
+
+        onLoop();
+        onRender();
     }
 
     onCleanup();
