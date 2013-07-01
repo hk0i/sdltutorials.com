@@ -15,8 +15,6 @@ void GApp::onRender(void)
         else if (gameBoard[i] == GRID_O) {
             Surface::draw(surfO, display, x, y);
         }
-
-
     }
 
     SDL_Flip(display);
