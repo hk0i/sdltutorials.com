@@ -61,16 +61,51 @@ const TicTacToe::GridType TicTacToe::takeTurn(int index)
  */
 const bool TicTacToe::checkForWin(void)
 {
-    //across
+    //debug print board
     std::cout << gameBoard[0] << gameBoard[1] << gameBoard[2] << std::endl;
     std::cout << gameBoard[3] << gameBoard[4] << gameBoard[5] << std::endl;
     std::cout << gameBoard[6] << gameBoard[7] << gameBoard[8] << std::endl;
     std::cout << std::endl;
 
+    //check exception cases before looping
+    //top left/bottom right diagonal
     if (gameBoard[0] > 0
-        && gameBoard[0] == gameBoard[1]
-        && gameBoard[1] == gameBoard[2]) {
+        && gameBoard[0] == gameBoard[4]
+        && gameBoard[4] == gameBoard[8]) {
         gameOver = true;
+        return true;
+    }
+
+    //top right/bottom left diagonal
+    if (gameBoard[2] > 0
+        && gameBoard[2] == gameBoard[4]
+        && gameBoard[4] == gameBoard[6]) {
+        gameOver = true;
+        return true;
+    }
+
+    //scan possibilities down col1
+    for (int i = 0; i < 7; i+=3) {
+        if (gameBoard[i] > 0) {
+            //across
+            if (gameBoard[i] == gameBoard[i+1]
+                && gameBoard[i+1] == gameBoard[i+2]) {
+                gameOver = true;
+                return true;
+            }
+        }
+    }
+
+    //check columns
+    for (int i = 0; i < 3; ++i)
+    {
+        if (gameBoard[i] > 0) {
+            if (gameBoard[i] == gameBoard[i+3]
+                && gameBoard[i+3] == gameBoard[i+6]) {
+                gameOver = true;
+                return true;
+            }
+        }
     }
 
     return gameOver;
