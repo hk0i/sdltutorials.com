@@ -5,7 +5,7 @@ Animation::Animation(void)
       oscillate(false),
       currentFrame(0),
       frameIncrement(1),
-      framerate(100), //milliseconds
+      frameDuration(100), //milliseconds
       oldTime(0)
 {
 
@@ -18,7 +18,7 @@ Animation::~Animation()
 
 void Animation::onAnimate(void)
 {
-    if (oldTime + framerate > SDL_GetTicks()) {
+    if (oldTime + frameDuration > SDL_GetTicks()) {
         return;
     }
 
@@ -44,9 +44,9 @@ void Animation::onAnimate(void)
     }
 }
 
-void Animation::setFramerate(int newFramerate)
+void Animation::setFrameDuration(int newDurationMs)
 {
-    framerate = newFramerate;
+    frameDuration = newDurationMs;
 }
 
 void Animation::setCurrentFrame(int frame)

@@ -11,7 +11,7 @@ class Animation
 
         void onAnimate(void);
 
-        void setFramerate(int newFramerate);
+        void setFrameDuration(int newDurationMs); //set frame length in ms
         void setCurrentFrame(int frame);
         const int getCurrentFrame(void) const;
 
@@ -21,7 +21,7 @@ class Animation
     private:
         int currentFrame;
         int frameIncrement;
-        int framerate;
+        int frameDuration;
         long oldTime;
 };
 
